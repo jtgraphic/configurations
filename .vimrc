@@ -6,6 +6,7 @@ retab
 
 " Use line numbers.
 set number
+set relativenumber
 
 " Remember more.
 set history=1000
