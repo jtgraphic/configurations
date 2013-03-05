@@ -34,3 +34,7 @@ filetype indent on
 
 " Make vim quieter.
 set visualbell
+
+" Plugins
+    " CntrlP
+    set runtimepath^=~/.vim/plugin/ctrlp.vim
