@@ -34,6 +34,9 @@ filetype indent on
 " Make vim quieter.
 set visualbell
 
+" json syntax highlighting
+    autocmd BufNewFile,BufRead *.json set ft=javascript
+
 " Plugins
-    " CntrlP
+    " CntrlP.vim
     set runtimepath^=~/.vim/plugin/ctrlp.vim
