@@ -1,6 +1,13 @@
+export EDITOR=/usr/bin/vim
+export EC2_HOME=~/.ec2
+export PATH=$PATH:$EC2_HOME/bin
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+source ~/.bash_sensitive
+
 alias gits='git status;'
-alias chef-roles='for file in `find roles/ -path "*\.json"`; do knife role from file $file; done'
-alias chef-environments='for file in `find environments/ -path "*\.json"`; do knife environment from file $file; done'
+alias chef-roles='find roles -name "*.json" -or -name "*.rb" | xargs knife role from file'
+alias chef-environments='find environments -name "*.json" -or -name "*.rb" | xargs knife environment from file'
 alias chef-sync='knife cookbook upload -a; chef-roles; chef-environments;'
 
 RED="\[\e[0;31m\]"

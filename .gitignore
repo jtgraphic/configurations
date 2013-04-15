@@ -1,1 +1,4 @@
 .viminfo
+*.swo
+*.swp
+*.bash_sensitive
