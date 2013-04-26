@@ -56,3 +56,6 @@ autocmd BufRead,BufNewFile   *.rb setlocal ts=2 sts=2 sw=2
 " Plugins
     " CntrlP.vim
     set runtimepath^=~/.vim/plugin/ctrlp.vim
+
+    " Pathogen
+    call pathogen#infect()
