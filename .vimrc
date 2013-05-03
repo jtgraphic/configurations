@@ -56,6 +56,10 @@ autocmd BufRead,BufNewFile   *.rb setlocal ts=2 sts=2 sw=2
 " Plugins
     " CntrlP.vim
     set runtimepath^=~/.vim/plugin/ctrlp.vim
+    let g:ctrlp_prompt_mappings = {
+        \ 'AcceptSelection("e")': ['<c-t>'],
+        \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+        \ }
 
     " Pathogen
     call pathogen#infect()
