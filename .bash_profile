@@ -46,3 +46,16 @@ _kssh() {
 }
 
 complete -F _kssh kssh
+
+cdc() {
+    cd ~/code/$1
+}
+
+_cdc() {
+    local cur opts
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    opts=$(cd ~/code ; ls -d *)
+    COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
+}
+
+complete -F _cdc cdc
