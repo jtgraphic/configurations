@@ -32,3 +32,17 @@ function dateOut() {
 }
 
 PS1="$GREEN[\$(dateOut)]$YELLOW\$(ref)\$(sha)\[\e[0m\][\w]\$ "
+
+kssh() {
+    IP=`knife node show 1.api.testing.updater.com | grep "IP" | sed 's/IP:          //g'`
+    ssh ubuntu@$IP
+}
+
+_kssh() {
+    local cur opts
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    opts=$(knife node list | tr '\n' ' ')
+    COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
+}
+
+complete -F _kssh kssh
