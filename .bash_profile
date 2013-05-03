@@ -34,7 +34,7 @@ function dateOut() {
 PS1="$GREEN[\$(dateOut)]$YELLOW\$(ref)\$(sha)\[\e[0m\][\w]\$ "
 
 kssh() {
-    IP=`knife node show 1.api.testing.updater.com | grep "IP" | sed 's/IP:          //g'`
+    IP=`knife node show $1 | grep "IP" | sed 's/IP:          //g'`
     ssh ubuntu@$IP
 }
 
