@@ -5,10 +5,18 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 
 source ~/.bash_sensitive
 
+alias l='ls -lhaG'
+
 alias gits='git status;'
+
 alias chef-roles='find roles -name "*.json" -or -name "*.rb" | xargs knife role from file'
 alias chef-environments='find environments -name "*.json" -or -name "*.rb" | xargs knife environment from file'
 alias chef-sync='knife cookbook upload -a; chef-roles; chef-environments;'
+
+kpurge() {
+    knife client delete $1
+    knife node delete $1
+}
 
 RED="\[\e[0;31m\]"
 YELLOW="\[\e[0;33m\]"
@@ -46,6 +54,7 @@ _kssh() {
 }
 
 complete -F _kssh kssh
+complete -F _kssh kpurge
 
 cdc() {
     cd ~/code/$1
