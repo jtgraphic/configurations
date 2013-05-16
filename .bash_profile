@@ -6,6 +6,7 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 source ~/.bash_sensitive
 
 alias l='ls -lhaG'
+alias ll='ls -lhaG'
 
 alias gits='git status;'
 
