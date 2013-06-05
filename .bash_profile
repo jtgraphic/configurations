@@ -67,3 +67,5 @@ GREEN="\[\e[0;32m\]"
 WHITE="\[\e[0;37m\]"
 
 PS1="$GREEN[\$(dateOut)]$YELLOW\$(ref)\$(sha)\[\e[0m\][\w]\$ "
+
+eval "$(hub alias -s)"
