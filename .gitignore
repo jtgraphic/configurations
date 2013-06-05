@@ -2,3 +2,4 @@
 *.swo
 *.swp
 *.bash_sensitive
+.vim/.netrwhist
