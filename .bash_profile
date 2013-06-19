@@ -1,6 +1,9 @@
 export EDITOR=/usr/bin/vim
 export JAVA_HOME=$(/usr/libexec/java_home)
 
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" && rvm use 1.9
+
 source ~/.bash_sensitive
 
 alias l='ls -lhaG'
@@ -12,8 +15,12 @@ alias chef-roles='find roles -name "*.json" -or -name "*.rb" | xargs knife role 
 alias chef-environments='find environments -name "*.json" -or -name "*.rb" | xargs knife environment from file'
 alias chef-sync='knife cookbook upload -a; chef-roles; chef-environments;'
 
+function gitp() {
+    git pull-request -b daftlabs:development -h daftlabs:$(ref)
+}
+
 function ref(){
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\[\1\]/' || return
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/' || return
 }
 
 function sha(){
@@ -66,6 +73,6 @@ YELLOW="\[\e[0;33m\]"
 GREEN="\[\e[0;32m\]"
 WHITE="\[\e[0;37m\]"
 
-PS1="$GREEN[\$(dateOut)]$YELLOW\$(ref)\$(sha)\[\e[0m\][\w]\$ "
+PS1="$GREEN[\$(dateOut)]$YELLOW[\$(ref)]\$(sha)\[\e[0m\][\w]\$ "
 
 eval "$(hub alias -s)"

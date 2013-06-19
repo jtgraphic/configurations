@@ -1,7 +1,7 @@
 " Manage default tabs with spaces and clean up bad stuff.
 set expandtab
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set autoindent
 retab
 
@@ -38,6 +38,8 @@ syntax on
 filetype on
 filetype plugin on
 filetype indent on
+set cursorline cursorcolumn
+hi CursorColumn ctermbg=18
 
 "sane cursor movement
 nmap j gj
@@ -51,13 +53,13 @@ set visualbell
 
 " File specific stuff
 " json syntax highlighting
-autocmd BufNewFile,BufRead *.json set ft=javascript ts=2
+autocmd BufNewFile,BufRead *.json set ft=javascript
 
 " ruby spaces
-autocmd BufRead,BufNewFile   *.rb setlocal ts=2 sts=2 sw=2
+autocmd BufRead,BufNewFile   *.rb setlocal sts=2 sw=2
 
 " coffeescript
-autocmd BufRead,BufNewFile   *.coffee setlocal ts=2 sts=2 sw=2
+autocmd BufRead,BufNewFile   *.coffee setlocal sts=2 sw=2
 
 " Plugins
     " CntrlP.vim
