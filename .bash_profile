@@ -1,5 +1,6 @@
 export EDITOR=/usr/bin/vim
 export JAVA_HOME=$(/usr/libexec/java_home)
+export VAGRANT_NODE_NAME=jt.development
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" && rvm use 1.9
