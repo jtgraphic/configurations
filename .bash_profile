@@ -17,7 +17,16 @@ alias chef-environments='find environments -name "*.json" -or -name "*.rb" | xar
 alias chef-sync='knife cookbook upload -a; chef-roles; chef-environments;'
 
 function gitp() {
-    git pull-request -b daftlabs:development -h daftlabs:$(ref)
+  git push origin $(ref)
+  git pull-request -m"$(last_commit)" -b daftlabs:master -h daftlabs:$(ref)
+}
+
+function project() {
+  git remote -v | head -n1 | awk '{print $2}' | sed 's/.*\///' | sed 's/\.git//'
+}
+
+function last_commit() {
+  git log --format=%B -1
 }
 
 function ref(){
