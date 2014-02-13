@@ -1,6 +1,7 @@
 export EDITOR=/usr/bin/vim
-export JAVA_HOME=$(/usr/libexec/java_home)
+JAVA_HOME=$(/usr/libexec/java_home)
 export VAGRANT_NODE_NAME=jt.development
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/jt/.rvm/bin
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" && rvm use 1.9
@@ -17,8 +18,8 @@ alias chef-environments='find environments -name "*.json" -or -name "*.rb" | xar
 alias chef-sync='knife cookbook upload -a; chef-roles; chef-environments;'
 
 function gitp() {
-  git push origin $(ref)
-  git pull-request -m"$(last_commit)" -b daftlabs:master -h daftlabs:$(ref)
+  git push -u origin $(ref)
+  hub pull-request "[#$(ref)] $(last_commit)" -b daftlabs:master -h daftlabs:$(ref)
 }
 
 function project() {

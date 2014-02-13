@@ -3,3 +3,5 @@
 [user]
 	name = James Thompson
 	email = me@jtgraphic.net
+[branch]
+	autosetuprebase = always

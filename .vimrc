@@ -19,7 +19,7 @@ set wildmenu
 set wildmode=list:longest
 
 " Show a vertical bar at column 121 and wrap text at 120
-set colorcolumn=121
+set colorcolumn=110
 set textwidth=120
 
 " Give the cursor some room while scrolling.
