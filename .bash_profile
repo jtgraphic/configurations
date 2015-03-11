@@ -57,6 +57,10 @@ _kssh() {
     COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
 }
 
+deploy() {
+  knife ssh "name:*.$2" "sudo chef-client" -x ubuntu -a ec2.public_hostname -i ~/.ssh/$1-validator.pem
+}
+
 complete -F _kssh kssh
 complete -F _kssh kpurge
 
